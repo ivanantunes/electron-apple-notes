@@ -1,0 +1,45 @@
+{
+  "name": "electron-apple-notes",
+  "version": "1.0.0",
+  "description": "Webview Apple Notes",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist:linux": "electron-builder --linux"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ivanantunes/electron-apple-notes.git"
+  },
+  "keywords": [
+    "apple",
+    "electrong",
+    "typescript",
+    "notes",
+    "webview"
+  ],
+  "author": {
+    "email": "ivanantnes75@gmail.com",
+    "name": "Ivan Antunes",
+    "url": "https://github.com/ivanantunes"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ivanantunes/electron-apple-notes/issues"
+  },
+  "homepage": "https://github.com/ivanantunes/electron-apple-notes#readme",
+  "devDependencies": {
+    "electron": "^10.1.1",
+    "electron-builder": "^22.8.0"
+  },
+  "build": {
+    "productName": "Apple-Notes",
+    "appId": "com.zdarks.apple-notes",
+    "linux": {
+      "target": [
+        "deb"
+      ],
+      "category": "Utility"
+    }
+  }
+}
