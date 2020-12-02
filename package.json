@@ -4,13 +4,18 @@
   "description": "Webview Apple Notes",
   "main": "main.js",
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron .",
-    "dist:linux": "electron-builder --linux"
+    "dist:linux": "electron-builder --linux",
+    "dist:win": "electron-builder --windows",
+    "dist-all": "rm -rf dist/ && npm run dist:linux && npm run dist:win"
   },
+  
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ivanantunes/electron-apple-notes.git"
   },
+  
   "keywords": [
     "apple",
     "electrong",
@@ -18,28 +23,50 @@
     "notes",
     "webview"
   ],
+
   "author": {
     "email": "ivanantnes75@gmail.com",
     "name": "Ivan Antunes",
     "url": "https://github.com/ivanantunes"
   },
+
   "license": "MIT",
+
   "bugs": {
     "url": "https://github.com/ivanantunes/electron-apple-notes/issues"
   },
   "homepage": "https://github.com/ivanantunes/electron-apple-notes#readme",
+
   "devDependencies": {
     "electron": "^10.1.1",
     "electron-builder": "^22.8.0"
   },
+
   "build": {
     "productName": "Apple-Notes",
     "appId": "com.zdarks.apple-notes",
+    "asar": false,
+    "files": [
+      "**/*",
+      "!package.json",
+      "!package-lock.json"
+    ],
+
+    "win": {
+      "icon": "./favicon.png",
+      "target": [
+        "nsis"
+      ]
+    },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": true
+    },
     "linux": {
+      "icon": "./favicon.png",
       "target": [
         "deb"
-      ],
-      "category": "Utility"
+      ]
     }
   }
 }
